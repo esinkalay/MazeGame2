@@ -12,6 +12,12 @@ public class Player : MonoBehaviour {
 	public GameObject bulletSpawner;
 	public GameObject bullet;
 	public Transform initial;
+	private Vector3 position;
+
+	void Start()
+	{
+		position = gameObject.transform.position;
+	}
 
 		
 	// methods or functions
@@ -56,7 +62,7 @@ public class Player : MonoBehaviour {
 		if(other.tag == "Enemy")
 		{
 			health -= 1.0f;
-			transform.Translate(initial.position, Space.World);
+			transform.position = position;
 			if(health < 0)
 			{
 				print("Player died.");
